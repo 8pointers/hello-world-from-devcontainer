@@ -1,0 +1,45 @@
+{
+  "name": "Hello World from Devcontainer",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:20-bullseye",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "jest.enableCodeLens": false,
+        "jest.jestCommandLine": "npm run-script test --",
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "zsh"
+          }
+        },
+        "workbench.colorCustomizations": {
+          "titleBar.activeBackground": "#61DAFB",
+          "titleBar.activeForeground": "#000000",
+          "titleBar.inactiveBackground": "#61DAFB",
+          "titleBar.inactiveForeground": "#000000"
+        }
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "Orta.vscode-jest"
+      ]
+    }
+  },
+  "forwardPorts": [
+    3000
+  ],
+  "portsAttributes": {
+    "3000": {
+      "label": "Hello World from Devcontainer",
+      "onAutoForward": "notify"
+    }
+  },
+  "remoteUser": "node",
+  "mounts": [
+    "source=hello-world-from-devcontainer-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "postCreateCommand": "sudo chown node:node node_modules && npm ci"
+}
