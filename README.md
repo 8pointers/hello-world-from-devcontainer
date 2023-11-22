@@ -1,4 +1,4 @@
-# Reactive Workshop Exercises
+# Hello World from Devcontainer
 
 ## Prerequisites
 
@@ -12,3 +12,5 @@ Open new Visual Studio Code window and use the _Remote-Containers: Clone Reposit
 ```sh
 npm start
 ```
+
+If everything worked as expected, a simple "Hello World!" page should appear in your default web browser.
